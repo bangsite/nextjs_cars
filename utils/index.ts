@@ -48,10 +48,10 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
     url.searchParams.append('zoomType', 'fullscreen');
     url.searchParams.append('modelYear', `${year}`);
     // url.searchParams.append('zoomLevel', zoomLevel);
-    url.searchParams.append('angle', `${angle}`);
+    if(angle) url.searchParams.append('angle', `${angle}`);
 
-    console.log("url:::",url)
-    return `${url}`;
+    console.log("url:::",url?.href)
+    return url?.href ? `${url?.href}`: `${url}`;
 }
 
 export const updateSearchParams = (type: string, value: string) => {
