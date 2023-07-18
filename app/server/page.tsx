@@ -42,7 +42,7 @@ export default async function ServerHome({searchParams}: HomeProps) {
                                 <div className="home__cars-wrapper">
                                     {
                                         allCars.map((car) => (
-                                            <CarCard car={car}/>
+                                            <CarCard car={car} key={car}/>
                                         ))
                                     }
                                 </div>

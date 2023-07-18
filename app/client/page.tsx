@@ -28,11 +28,11 @@ export default function ClientHome() {
 
         try {
             const result = await fetchCars({
-                manufacturer: manufacturer || '',
-                model: model || '',
-                fuel: fuel || '',
-                limit: limit || 10,
+                manufacturer: manufacturer.toLowerCase() || '',
+                model: model.toLowerCase() || '',
+                fuel: fuel.toLowerCase() || '',
                 year: year || 2022,
+                limit: limit || 10,
             });
             setAllCars(result);
 
@@ -44,10 +44,8 @@ export default function ClientHome() {
     }
 
     useEffect(() => {
-        getCars();
-        console.log(fuel, year, limit, manufacturer, model)
+        getCars().then(r => console.log(r));
     }, [fuel, year, limit, manufacturer, model])
-
 
     return (
         <main className="overflow-hidden">
@@ -86,9 +84,7 @@ export default function ClientHome() {
                                                className="object-contain"
                                         />
                                     </div>
-                                )
-
-                                }
+                                )}
                                 <ShowMoreClient
                                     pageNumber={limit / 10}
                                     isNext={limit > allCars.length}
