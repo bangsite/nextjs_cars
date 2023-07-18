@@ -40,12 +40,12 @@ const SearchManufacturer = ({selected, setSelected}: SearchManufacturerClientPro
                                 filterManufacturers.length === 0 && query !== "" ? (
                                     <Combobox.Option value={query}
                                                      className="search-manufacturer__option">
-                                        Create "{query}"
+                                        Create {query}
                                     </Combobox.Option>
                                 ) : (
-                                    filterManufacturers.map(item => (
+                                    filterManufacturers.map((item, index) => (
                                         <Combobox.Option
-                                            key={item}
+                                            key={index}
                                             value={item}
                                             className={({active}) => `relative search-manufacturer__option ${active ? "bg-primary-blue text-white" : "text-gray-900"} `}>
                                             {({active, selected}) => (

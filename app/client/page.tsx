@@ -44,7 +44,7 @@ export default function ClientHome() {
     }
 
     useEffect(() => {
-        getCars().then(r => console.log(r));
+        getCars();
     }, [fuel, year, limit, manufacturer, model])
 
     return (
@@ -71,7 +71,7 @@ export default function ClientHome() {
                                 <div className="home__cars-wrapper">
                                     {
                                         allCars.map((car, index) => (
-                                            <CarCard key={`car-${index}`} car={car} />
+                                            <CarCard key={`car-${index}`} car={car}/>
                                         ))
                                     }
                                 </div>
