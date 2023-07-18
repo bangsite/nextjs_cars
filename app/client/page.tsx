@@ -70,8 +70,8 @@ export default function ClientHome() {
                             <section className="py-6">
                                 <div className="home__cars-wrapper">
                                     {
-                                        allCars.map((car, key) => (
-                                            <CarCard car={car} key={key}/>
+                                        allCars.map((car, index) => (
+                                            <CarCard key={`car-${index}`} car={car} />
                                         ))
                                     }
                                 </div>
