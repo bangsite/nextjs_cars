@@ -41,8 +41,8 @@ export default async function ServerHome({searchParams}: HomeProps) {
                             <section className="py-6">
                                 <div className="home__cars-wrapper">
                                     {
-                                        allCars.map((car) => (
-                                            <CarCard car={car}/>
+                                        allCars.map((car,index) => (
+                                            <CarCard key={`car-${index}`} car={car} />
                                         ))
                                     }
                                 </div>

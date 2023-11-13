@@ -40,22 +40,22 @@ const SearchManufacturer = ({selected, setSelected}: SearchManufacturerClientPro
                                 filterManufacturers.length === 0 && query !== "" ? (
                                     <Combobox.Option value={query}
                                                      className="search-manufacturer__option">
-                                        Create "{query}"
+                                        Create {query}
                                     </Combobox.Option>
                                 ) : (
-                                    filterManufacturers.map(item => (
+                                    filterManufacturers.map((item, index) => (
                                         <Combobox.Option
-                                            key={item}
+                                            key={index}
                                             value={item}
-                                            className={({active}) => `relative search-manufacturer__option ${active ? 'bg-primary-blue text-white' : 'text-gray-900'} `}>
+                                            className={({active}) => `relative search-manufacturer__option ${active ? "bg-primary-blue text-white" : "text-gray-900"} `}>
                                             {({active, selected}) => (
                                                 <>
                                                      <span
-                                                         className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
+                                                         className={`block truncate ${selected ? "font-medium" : "font-normal"}`}>
                                                         {item}
                                                     </span>
                                                     {selected ? (<span
-                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-teal-600'}`}/>) : null}
+                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? "text-white" : "text-teal-600"}`}/>) : null}
                                                 </>
                                             )}
                                         </Combobox.Option>

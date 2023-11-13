@@ -28,11 +28,11 @@ export default function ClientHome() {
 
         try {
             const result = await fetchCars({
-                manufacturer: manufacturer || '',
-                model: model || '',
-                fuel: fuel || '',
-                limit: limit || 10,
+                manufacturer: manufacturer.toLowerCase() || '',
+                model: model.toLowerCase() || '',
+                fuel: fuel.toLowerCase() || '',
                 year: year || 2022,
+                limit: limit || 10,
             });
             setAllCars(result);
 
@@ -45,9 +45,7 @@ export default function ClientHome() {
 
     useEffect(() => {
         getCars();
-        console.log(fuel, year, limit, manufacturer, model)
     }, [fuel, year, limit, manufacturer, model])
-
 
     return (
         <main className="overflow-hidden">
@@ -72,8 +70,8 @@ export default function ClientHome() {
                             <section className="py-6">
                                 <div className="home__cars-wrapper">
                                     {
-                                        allCars.map((car, key) => (
-                                            <CarCard car={car} key={key}/>
+                                        allCars.map((car, index) => (
+                                            <CarCard key={`car-${index}`} car={car}/>
                                         ))
                                     }
                                 </div>
@@ -86,9 +84,7 @@ export default function ClientHome() {
                                                className="object-contain"
                                         />
                                     </div>
-                                )
-
-                                }
+                                )}
                                 <ShowMoreClient
                                     pageNumber={limit / 10}
                                     isNext={limit > allCars.length}
